@@ -13,7 +13,7 @@ const Categories = (props: any) => {
                 768: 2,
                 640: 1
             }}
-            className="flex flex-wrap p-4 mx-auto lg:mt-24"
+            className="flex flex-wrap p-4 mx-auto lg:mt-32"
             columnClassName="w-auto">
             {
                 props.cheatsheet.map((category: Category) => <CategoryComponent key={category.title} category={category} />)
