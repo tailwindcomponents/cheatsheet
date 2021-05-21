@@ -1,19 +1,32 @@
-# React Base App
+<p align="center">
+    <img src="src/images/cheatsheet.png" alt="Ibis logo" width="480">
 
-## Paquetes:
+## Tailwindcomponents Cheatsheet
+This repo content a cheatsheet page from tailwindcompnents.com, it's react base app build with typescript.
 
-- [Connected React Router](https://github.com/supasate/connected-react-routerreac)
-- [React Redux](https://github.com/reduxjs/react-redux)
-- [React Router](https://github.com/ReactTraining/react-router/tree/master/packages/react-router)
-- [React Router Dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
-- [Redux](https://es.redux.js.org/)
-- [Axios](https://github.com/axios/axios)
-- [Axios Middleware](https://github.com/emileber/axios-middleware)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [TypeScript](https://github.com/microsoft/TypeScript)
+<a href="https://github.com/tailwindcomponents/cheatsheet/blob/master/LICENSE.md">
+    <img src="https://img.shields.io/github/license/tailwindcomponents/cheatsheet">
+</a>
 
-## Comandos
+<a href="https://github.com/tailwindcomponents/cheatsheet/stargazers">
+    <img src="https://img.shields.io/github/stars/tailwindcomponents/cheatsheet">
+</a>
 
-- **yarn start:** Inicia el modo desarrollo en el puerto 3000
-- **yarn test:** Ejecutar [tests](https://facebook.github.io/create-react-app/docs/running-tests)
-- **yarn build:** Compila para [producción](https://facebook.github.io/create-react-app/docs/deployment)
+<a href="https://twitter.com/TwComponents">
+    <img src="https://img.shields.io/twitter/url?label=Tailwindcomponents&style=social&url=https%3A%2F%2Ftwitter.com%2FTwComponents">
+</a>
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn start
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
