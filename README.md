@@ -2,9 +2,9 @@
     <img src="src/images/cheatsheet.png" alt="Ibis logo" width="480">
 
 ## Tailwindcomponents Cheatsheet
-This repo content a cheatsheet page from tailwindcompnents.com, it's react base app build with typescript.
+This repo content a cheatsheet page from [tailwindcompnents.com](https://tailwindcomponents.com/cheatsheet/), it's react base app build with typescript.
 
-<a href="https://github.com/tailwindcomponents/cheatsheet/blob/master/LICENSE.md">
+<a href="https://github.com/tailwindcomponents/cheatsheet/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/tailwindcomponents/cheatsheet">
 </a>
 
