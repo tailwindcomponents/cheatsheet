@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Footer = (props: any) => (
-    <div className="container mx-auto px-6 mt-16">
-        <div className="border-t border-gray-200 flex flex-col items-center">
-            <div className="sm:w-2/3 text-center py-6">
-                <p className="text-sm text-gray-600">© 2020 by Highscore Studio</p>
+    <div className="container px-6 mx-auto mt-16">
+        <div className="flex flex-col items-center border-t border-gray-200">
+            <div className="py-6 text-center sm:w-2/3">
+                <p className="text-sm text-gray-600">© {(new Date().getFullYear())} by Tailwind Components</p>
             </div>
         </div>
     </div>
