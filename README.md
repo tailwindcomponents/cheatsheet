@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="src/images/cheatsheet.png" alt="Ibis logo" width="480">
+    <img src="src/images/cheatsheet.png" alt="Ibis logo">
 
 ## Tailwindcomponents Cheatsheet
 This repo content a cheatsheet page from [tailwindcompnents.com](https://tailwindcomponents.com/cheatsheet/), it's react base app build with typescript.
