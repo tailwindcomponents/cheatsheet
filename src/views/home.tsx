@@ -50,12 +50,6 @@ const Home = (props: any) => {
     return (
         <>
             <SearchBar search={search} />
-            <div className="fixed bottom-0 my-20 overflow-hidden rounded-md right-6 lg:left-1/4 lg:right-1/4">
-                <a href="https://a.paddle.com/v2/click/37973/127422?link=3167" rel="noopener noreferrer" target="_blank">
-                    <img className="hidden lg:block" src="https://cdn.devdojo.com/affiliates/tails/970x90.jpg" alt="tails ads" />
-                    <img className="h-44 lg:hidden" src="https://cdn.devdojo.com/affiliates/tails/ad-16x9.jpg" alt="tails ads" />
-                </a>
-            </div>
             <Categories cheatsheet={cheatsheet} />
             <Footer />
         </>
