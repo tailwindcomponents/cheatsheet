@@ -1,8 +1,8 @@
 <p align="center">
     <img src="src/images/cheatsheet.png" alt="Ibis logo">
 
-## Tailwindcomponents Cheatsheet
-This repo content a cheatsheet page from [tailwindcompnents.com](https://tailwindcomponents.com/cheatsheet/), it's react base app build with typescript.
+## Tailwindcomponents Cheatsheet]
+This repo content a cheatsheet page from [tailwindcomponents.com](https://tailwindcomponents.com/cheatsheet/), it's react base app build with typescript.
 
 <a href="https://github.com/tailwindcomponents/cheatsheet/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/tailwindcomponents/cheatsheet">
