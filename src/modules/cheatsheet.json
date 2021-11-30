@@ -8543,7 +8543,7 @@
             },
             {
                 "title": "Gradient Color Stops",
-                "docs": "https://tailwindcss.com/docs/bacgradient-color-stops",
+                "docs": "https://tailwindcss.com/docs/gradient-color-stops",
                 "description": "Utilities for controlling the color stops in background gradients.",
                 "table": [
                     [
