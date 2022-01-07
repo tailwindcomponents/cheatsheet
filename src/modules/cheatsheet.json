@@ -3,6 +3,28 @@
         "title": "Layout",
         "content": [
             {
+                "title": "Aspect Ratio",
+                "docs": "https://tailwindcss.com/docs/aspect-ratio",
+                "description": "Utilities for controlling the aspect ratio of an element.",
+                "table": [
+                    [
+                        ".aspect-auto",
+                        "aspect-ratio: auto;",
+                        ""
+                    ],
+                    [
+                        ".aspect-square",
+                        "aspect-ratio: 1 / 1;",
+                        ""
+                    ],
+                    [
+                        ".aspect-video", 
+                        "aspect-ratio: 16 / 9;", 
+                        ""
+                    ]
+                ]
+            },
+            {
                 "title": "Container",
                 "docs": "https://tailwindcss.com/docs/container",
                 "description": "Sets the max-width to match the min-width of the current breakpoint.",
@@ -15,32 +37,290 @@
                     ],
                     [
                         "",
-                        "sm:",
+                        "sm (640px)",
                         "max-width: 640px;",
                         ""
                     ],
                     [
                         "",
-                        "md:",
+                        "md (768px)",
                         "max-width: 768px;",
                         ""
                     ],
                     [
                         "",
-                        "lg:",
+                        "lg (1024px)",
                         "max-width: 1024px;",
                         ""
                     ],
                     [
                         "",
-                        "xl:",
+                        "xl (1280px)",
                         "max-width: 1280px;",
                         ""
                     ],
                     [
                         "",
-                        "2xl:",
+                        "2xl (1536px)",
                         "max-width: 1536px;",
+                        ""
+                    ]
+                ]
+            },
+            {
+                "title": "Columns",
+                "docs": "https://tailwindcss.com/docs/columns",
+                "description": "Utilities for controlling the number of columns within an element.",
+                "table": [
+                    [
+                        ".columns-1",
+                        "columns: 1;",
+                        ""
+                    ],
+                    [
+                        ".columns-2",
+                        "columns: 2;",
+                        ""
+                    ],
+                    [
+                        ".columns-3",
+                        "columns: 3;",
+                        ""
+                    ],
+                    [
+                        ".columns-4",
+                        "columns: 4;",
+                        ""
+                    ],
+                    [
+                        ".columns-5",
+                        "columns: 5;",
+                        ""
+                    ],
+                    [
+                        ".columns-6",
+                        "columns: 6;",
+                        ""
+                    ],
+                    [
+                        ".columns-7",
+                        "columns: 7;",
+                        ""
+                    ],
+                    [
+                        ".columns-8",
+                        "columns: 8;",
+                        ""
+                    ],
+                    [
+                        ".columns-9",
+                        "columns: 9;",
+                        ""
+                    ],
+                    [
+                        ".columns-10",
+                        "columns: 10;",
+                        ""
+                    ],
+                    [
+                        ".columns-11",
+                        "columns: 11;",
+                        ""
+                    ],
+                    [
+                        ".columns-12",
+                        "columns: 12;",
+                        ""
+                    ],
+                    [
+                        ".columns-auto",
+                        "columns: auto;",
+                        ""
+                    ],
+                    [
+                        ".columns-3xs",
+                        "columns: 16rem;",
+                        ""
+                    ],
+                    [
+                        ".columns-2xs",
+                        "columns: 18rem;",
+                        ""
+                    ],
+                    [
+                        ".columns-xs",
+                        "columns: 20rem;",
+                        ""
+                    ],
+                    [
+                        ".columns-sm",
+                        "columns: 24rem;",
+                        ""
+                    ],
+                    [
+                        ".columns-md",
+                        "columns: 28rem;",
+                        ""
+                    ],
+                    [
+                        ".columns-lg",
+                        "columns: 32rem;",
+                        ""
+                    ],
+                    [
+                        ".columns-xl",
+                        "columns: 36rem;",
+                        ""
+                    ],
+                    [
+                        ".columns-2xl",
+                        "columns: 42rem;",
+                        ""
+                    ],
+                    [
+                        ".columns-3xl",
+                        "columns: 48rem;",
+                        ""
+                    ],
+                    [
+                        ".columns-4xl",
+                        "columns: 56rem;",
+                        ""
+                    ],
+                    [
+                        ".columns-5xl",
+                        "columns: 64rem;",
+                        ""
+                    ],
+                    [
+                        ".columns-6xl",
+                        "columns: 72rem;",
+                        ""
+                    ],
+                    [
+                        ".columns-7xl",
+                        "columns: 80rem;",
+                        ""
+                    ]
+                ]
+            },
+            {
+                "title": "Break After",
+                "docs": "https://tailwindcss.com/docs/break-after",
+                "description": "Utilities for controlling how a column or page should break after an element.",
+                "table": [
+                    [
+                        ".break-after-auto",
+                        "break-after: auto;",
+                        ""
+                    ],
+                    [
+                        ".break-after-avoid",
+                        "break-after: avoid;",
+                        ""
+                    ],
+                    [
+                        ".break-after-all",
+                        "break-after: all;",
+                        ""
+                    ],
+                    [
+                        ".break-after-avoid-page",
+                        "break-after: avoid-page;",
+                        ""
+                    ],
+                    [
+                        ".break-after-page",
+                        "break-after: page;",
+                        ""
+                    ],
+                    [
+                        ".break-after-left",
+                        "break-after: left;",
+                        ""
+                    ],
+                    [
+                        ".break-after-right",
+                        "break-after: right;",
+                        ""
+                    ],
+                    [
+                        ".break-after-column",
+                        "break-after: column;",
+                        ""
+                    ]
+                ]
+            },
+            {
+                "title": "Break Before",
+                "docs": "https://tailwindcss.com/docs/break-before",
+                "description": "Utilities for controlling how a column or page should break before an element.",
+                "table": [
+                    [
+                        ".break-before-auto",
+                        "break-before: auto;",
+                        ""
+                    ],
+                    [
+                        ".break-before-avoid",
+                        "break-before: avoid;",
+                        ""
+                    ],
+                    [
+                        ".break-before-all",
+                        "break-before: all;",
+                        ""
+                    ],
+                    [
+                        ".break-before-avoid-page",
+                        "break-before: avoid-page;",
+                        ""
+                    ],
+                    [
+                        ".break-before-page",
+                        "break-before: page;",
+                        ""
+                    ],
+                    [
+                        ".break-before-left",
+                        "break-before: left;",
+                        ""
+                    ],
+                    [
+                        ".break-before-right",
+                        "break-before: right;",
+                        ""
+                    ],
+                    [
+                        ".break-before-column",
+                        "break-before: column;",
+                        ""
+                    ]
+                ]
+            },
+            {
+                "title": "Break Inside",
+                "docs": "https://tailwindcss.com/docs/break-inside",
+                "description": "Utilities for controlling how a column or page should break within an element.",
+                "table": [
+                    [
+                        ".break-inside-auto",
+                        "break-inside: auto;",
+                        ""
+                    ],
+                    [
+                        ".break-inside-avoid",
+                        "break-inside: avoid;",
+                        ""
+                    ],
+                    [
+                        ".break-inside-avoid-page",
+                        "break-inside: avoid-page;",
+                        ""
+                    ],
+                    [
+                        ".break-inside-column",
+                        "break-inside: column;",
                         ""
                     ]
                 ]
@@ -80,57 +360,10 @@
                 ]
             },
             {
-                "title": "Breakpoints",
-                "docs": "https://tailwindcss.com/docs/responsive-design",
-                "description": "Breakpoints (screen sizes) that wrap utility classes.",
-                "table": [
-                    [
-                        "sm:",
-                        "@media (min-width: 640px) { ... }",
-                        ""
-                    ],
-                    [
-                        "md:",
-                        "@media (min-width: 768px) { ... }",
-                        ""
-                    ],
-                    [
-                        "lg:",
-                        "@media (min-width: 1024px) { ... }",
-                        ""
-                    ],
-                    [
-                        "xl:",
-                        "@media (min-width: 1280px) { ... }",
-                        ""
-                    ],
-                    [
-                        "2xl:",
-                        "@media (min-width: 1536px) { ... }",
-                        ""
-                    ]
-                ]
-            },
-            {
                 "title": "Display",
                 "docs": "https://tailwindcss.com/docs/display",
                 "description": "Sets the display box type of an element.",
                 "table": [
-                    [
-                        ".hidden",
-                        "display: none;",
-                        ""
-                    ],
-                    [
-                        ".contents",
-                        "display: contents;",
-                        ""
-                    ],
-                    [
-                        ".list-item",
-                        "display: list-item;",
-                        ""
-                    ],
                     [
                         ".block",
                         "display: block;",
@@ -139,6 +372,11 @@
                     [
                         ".inline-block",
                         "display: inline-block;",
+                        ""
+                    ],
+                    [
+                        ".inline",
+                        "display: inline;",
                         ""
                     ],
                     [
@@ -152,11 +390,6 @@
                         ""
                     ],
                     [
-                        ".inline",
-                        "display: inline;",
-                        ""
-                    ],
-                    [
                         ".table",
                         "display: table;",
                         ""
@@ -167,13 +400,13 @@
                         ""
                     ],
                     [
-                        ".table-cell",
-                        "display: table-cell;",
+                        ".table-caption",
+                        "display: table-caption;",
                         ""
                     ],
                     [
-                        ".table-caption",
-                        "display: table-caption;",
+                        ".table-cell",
+                        "display: table-cell;",
                         ""
                     ],
                     [
@@ -219,6 +452,21 @@
                     [
                         ".inline-grid",
                         "display: inline-grid",
+                        ""
+                    ],
+                    [
+                        ".contents",
+                        "display: contents;",
+                        ""
+                    ],
+                    [
+                        ".list-item",
+                        "display: list-item;",
+                        ""
+                    ],
+                    [
+                        ".hidden",
+                        "display: none;",
                         ""
                     ]
                 ]
