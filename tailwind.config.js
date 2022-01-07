@@ -1,18 +1,11 @@
-const colors = require('tailwindcss/colors');
-
 module.exports = {
-  purge: [
-    './src/**/*.{js,jsx,ts,tsx}', './public/index.html'
-  ],
-  darkMode: false, // or 'media' or 'class'
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        primary: '#0ED3CF',
-        teal: colors.teal
+        primary: "#0ED3CF",
       },
-    }
+    },
   },
-  variants: {},
-  plugins: [require('@tailwindcss/forms'),],
-}
+  plugins: [require("@tailwindcss/forms")],
+};
