@@ -13184,12 +13184,12 @@
                         ""
                     ],
                     [
-                        ".overflow-ellipsis",
+                        ".text-ellipsis",
                         "text-overflow: ellipsis;",
                         ""
                     ],
                     [
-                        ".overflow-clip",
+                        ".text-clip",
                         "text-overflow: clip;",
                         ""
                     ]
@@ -13395,7 +13395,7 @@
                         ""
                     ],
                     [
-                        ".flex-grow-0",
+                        ".grow-0",
                         "flex-grow: 0;",
                         ""
                     ]
@@ -13403,17 +13403,17 @@
             },
             {
                 "title": "Flex Shrink",
-                "docs": "https://tailwindcss.com/docs/flex-shrink",
+                "docs": "https://tailwindcss.com/docs/shrink",
                 "description": "Controls how flex items shrink.",
                 "table": [
                     [
-                        ".flex-shrink",
-                        "flex-shrink: 1;",
+                        ".shrink",
+                        "shrink: 1;",
                         ""
                     ],
                     [
-                        ".flex-shrink-0",
-                        "flex-shrink: 0;",
+                        ".shrink-0",
+                        "shrink: 0;",
                         ""
                     ]
                 ]
