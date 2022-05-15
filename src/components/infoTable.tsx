@@ -26,9 +26,10 @@ const InfoTable = ({ table }: any) => {
                                 {
                                     tr.map((td: string, index: Number) => {
                                         return (
-                                            <td
+                                            <td 
+                                            onClick={() => { navigator.clipboard.writeText(td); alert(td + " Copied to clipboard") }}
                                             key={'td-' + index}
-                                            className={classNames('font-mono text-xs p-2 border-b border-gray-300', {
+                                            className={classNames('font-mono cursor-copy text-xs hover:underline p-2 border-b border-gray-300', {
                                                 'text-purple-700 whitespace-nowrap': index === 0,
                                                 'text-blue-700': index === 1,
                                                 'text-gray-500 text-xs': index === 2,
