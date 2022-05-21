@@ -17,7 +17,7 @@ const InfoTable = ({ table }: any) => {
     };
 
     return (
-        <table className="w-full mb-4 bg-gray-100 rounded">
+        <table className="w-full mb-4 bg-gray-100 rounded dark:bg-gray-900">
             <tbody>
                 {
                     table.map((tr: string[], index: Number) => {
@@ -29,10 +29,10 @@ const InfoTable = ({ table }: any) => {
                                             <td 
                                             onClick={() => { navigator.clipboard.writeText(td); alert(td + " Copied to clipboard") }}
                                             key={'td-' + index}
-                                            className={classNames('font-mono cursor-copy text-xs hover:underline p-2 border-b border-gray-300', {
-                                                'text-purple-700 whitespace-nowrap': index === 0,
-                                                'text-blue-700': index === 1,
-                                                'text-gray-500 text-xs': index === 2,
+                                            className={classNames('cursor-copy font-mono text-xs hover:underline p-2 border-b border-gray-300 dark:border-gray-700', {
+                                                'text-purple-700 dark:text-purple-300 whitespace-nowrap': index === 0,
+                                                'text-blue-700 dark:text-blue-300': index === 1,
+                                                'text-gray-500 dark:text-gray-300 text-xs': index === 2,
                                             })}>{parseText(td)}</td>
                                         );
                                     })
