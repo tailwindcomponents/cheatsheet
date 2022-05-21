@@ -27,12 +27,12 @@ const Subcategory = ({ subcategory }: any) => {
     return (
         <div>
             <div
-              className="flex items-center px-3 py-2 text-gray-700 border-gray-300 cursor-pointer transition-colors duration-300 transform hover:bg-gray-200 hover:text-gray-900"
+              className="flex items-center px-3 py-2 text-gray-700 transition-colors duration-300 transform border-gray-300 cursor-pointer dark:hover:bg-gray-600 dark:text-gray-300 hover:bg-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
               onClick={toggleCollapse}
             >
-                <h1 className="flex-1 font-mono text-sm">{subcategory.title}</h1>
+                <h1 className="flex-1 text-sm tracking-wider">{subcategory.title}</h1>
                 <a
-                  className="px-2 py-1 text-xs font-bold transition-colors duration-300 transform text-white uppercase bg-gray-400 rounded-md hover:bg-primary"
+                    className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-gray-400 rounded-md dark:bg-gray-700 hover:bg-primary dark:hover:bg-primary"
                   href={subcategory.docs}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -41,10 +41,10 @@ const Subcategory = ({ subcategory }: any) => {
                   Docs
                 </a>
             </div>
-            <div className={classNames('bg-gray-200 px-4 overflow-hidden', {
+            <div className={classNames('bg-gray-200 dark:bg-gray-700 px-4 overflow-hidden', {
                 'h-0': !isVisible
             })}>
-                <p className="my-3 font-semibold leading-tight text-gray-800">{subcategory.description}</p>
+                <p className="my-3 font-semibold leading-tight text-gray-800 dark:text-gray-200">{subcategory.description}</p>
                 <InfoTable table={subcategory.table} />
             </div>
         </div>

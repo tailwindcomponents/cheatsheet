@@ -48,11 +48,11 @@ const Home = (props: any) => {
     };
 
     return (
-        <>
+        <main className={"tracking-wide font-roboto " + (JSON.parse(localStorage.getItem('darkMode') || '{}') ? 'dark' : '') }>
             <SearchBar search={search} />
             <Categories cheatsheet={cheatsheet} />
             <Footer />
-        </>
+        </main>
     );
 }
 
