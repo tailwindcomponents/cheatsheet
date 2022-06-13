@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from "classnames";
-
+import { copyTextToClipboard } from '../utils/copyTextToClipboard';
+                                            
 const InfoTable = ({ table }: any) => {
     const parseText = (text: string): any => {
         if(text.includes("rgb(") || text === "transparent")
@@ -27,7 +28,11 @@ const InfoTable = ({ table }: any) => {
                                     tr.map((td: string, index: Number) => {
                                         return (
                                             <td 
-                                            onClick={() => { navigator.clipboard.writeText(td); alert(td + " Copied to clipboard") }}
+                                            onClick={async () => { 
+                                                await copyTextToClipboard(td).then(() =>
+                                                alert(td + " Copied to clipboard")
+                                              );
+                                             }}
                                             key={'td-' + index}
                                             className={classNames('cursor-copy font-mono text-xs hover:underline p-2 border-b border-gray-300 dark:border-gray-700', {
                                                 'text-purple-700 dark:text-purple-300 whitespace-nowrap': index === 0,
