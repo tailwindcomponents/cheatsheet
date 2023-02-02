@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from "classnames";
 import { copyTextToClipboard } from '../utils/copyTextToClipboard';
-                                            
+import { Toast } from "./toast";
+
 const InfoTable = ({ table }: any) => {
+    const [showToast, setShowToast] = useState(false);
+    const [toastText, setToastText] = useState("");
+
     const parseText = (text: string): any => {
         if(text.includes("rgb(") || text === "transparent")
         {
@@ -17,9 +21,19 @@ const InfoTable = ({ table }: any) => {
         return text;
     };
 
+    function handleClick(td: string) {
+        setToastText(td)
+        setShowToast(true)
+        setTimeout(() => {
+            setShowToast(false)
+        }, 5000)
+    }
+
     return (
-        <table className="w-full mb-4 bg-gray-100 rounded dark:bg-gray-900">
-            <tbody>
+        <>
+            {showToast && <Toast text={toastText} /> }
+            <table className="w-full mb-4 bg-gray-100 rounded dark:bg-gray-900">
+                <tbody>
                 {
                     table.map((tr: string[], index: Number) => {
                         return (
@@ -27,18 +41,19 @@ const InfoTable = ({ table }: any) => {
                                 {
                                     tr.map((td: string, index: Number) => {
                                         return (
-                                            <td 
-                                            onClick={async () => { 
-                                                await copyTextToClipboard(td).then(() =>
-                                                alert(td + " Copied to clipboard")
-                                              );
-                                             }}
-                                            key={'td-' + index}
-                                            className={classNames('cursor-copy font-mono text-xs hover:underline p-2 border-b border-gray-300 dark:border-gray-700', {
-                                                'text-purple-700 dark:text-purple-300 whitespace-nowrap': index === 0,
-                                                'text-blue-700 dark:text-blue-300': index === 1,
-                                                'text-gray-500 dark:text-gray-300 text-xs': index === 2,
-                                            })}>{parseText(td)}</td>
+                                            <td
+                                                onClick={async () => {
+                                                    await copyTextToClipboard(td).then(() => {
+                                                            handleClick(td)
+                                                        }
+                                                    );
+                                                }}
+                                                key={'td-' + index}
+                                                className={classNames('cursor-copy font-mono text-xs hover:underline p-2 border-b border-gray-300 dark:border-gray-700', {
+                                                    'text-purple-700 dark:text-purple-300 whitespace-nowrap': index === 0,
+                                                    'text-blue-700 dark:text-blue-300': index === 1,
+                                                    'text-gray-500 dark:text-gray-300 text-xs': index === 2,
+                                                })}>{parseText(td)}</td>
                                         );
                                     })
                                 }
@@ -46,8 +61,9 @@ const InfoTable = ({ table }: any) => {
                         );
                     })
                 }
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </>
     );
 }
 
