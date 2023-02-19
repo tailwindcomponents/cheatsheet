@@ -12,7 +12,7 @@ const SearchBar = (props: any) => {
 
     const search = (event: any) => {
         const text: string = event.target.value
-        if (text.length < 4) return
+        if (0 < text.length && text.length < 4) return
 
         props.search(text)
     }
