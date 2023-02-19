@@ -17,9 +17,7 @@ const Home = (props: any) => {
         trackView('/cheatsheet');
     }, []);
 
-    const search = (event: any) => {
-        const text: string = event.target.value;
-
+    const search = (text: string) => {
         let newCheatsheet: Category[] = json.map((category: Category) => {
             return {
                 ...category,
