@@ -19,7 +19,9 @@ const SearchBar = (props: any) => {
                         <h1 className="flex items-center pl-2 mt-2 text-lg text-gray-600 dark:border-gray-700 dark:text-gray-300 lg:mt-0 sm:ml-2 sm:border-l sm:border-gray-400">Cheatsheet <span className="flex items-center h-5 px-2 ml-2 text-xs font-bold text-white rounded-md bg-primary">{tailwindVersion}</span></h1>
                     </div>
 
-                    <input ref={searchInput} className="h-10 mt-4 text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 lg:mt-0 2xl:w-96 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20" type="text" placeholder="Search" onChange={props.search} />
+                    <div className="h-10 sm:w-96 xl:w-80 2xl:w-96 mt-4 sm:mx-auto lg:m-0">
+                        <input ref={searchInput} className="h-full w-full text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20" type="text" placeholder="Search" onChange={props.search} />
+                    </div>
 
                     <div className="flex flex-col mt-4 space-y-3 lg:mt-0 sm:flex-row sm:space-y-0 sm:space-x-3 sm:items-center sm:justify-center">
                         <button onClick={() => dispatch('ui/expand')} className="px-4 py-2 space-x-3 text-sm text-gray-600 transition-colors duration-300 transform border rounded-lg dark:text-gray-200 dark:border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">Expand <span className="lg:hidden xl:inline">All</span></button>
