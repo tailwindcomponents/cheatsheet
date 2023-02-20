@@ -25,15 +25,15 @@ const SearchBar = (props: any) => {
                         <h1 className="flex items-center pl-2 mt-2 text-lg text-gray-600 dark:border-gray-700 dark:text-gray-300 lg:mt-0 sm:ml-2 sm:border-l sm:border-gray-400">Cheatsheet <span className="flex items-center h-5 px-2 ml-2 text-xs font-bold text-white rounded-md bg-primary">{tailwindVersion}</span></h1>
                     </div>
 
-                    <div className="h-10 sm:w-96 xl:w-80 2xl:w-96 mt-4 sm:mx-auto lg:m-0 relative">
-                        <input ref={searchInputRef} className="h-full w-full text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20" type="text" placeholder="Search" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
+                    <div className="relative h-10 mt-4 sm:w-96 xl:w-80 2xl:w-96 sm:mx-auto lg:m-0">
+                        <input ref={searchInputRef} className="w-full h-full text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20" type="text" placeholder="Search" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
 
                         {searchInput.length > 0 && (<>
-                            {/* source from https://github.com/FortAwesome/Font-Awesome/blob/6.x/svgs/regular/circle-xmark.svg */}
-                            <svg ref={clearSearchInput} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="h-full p-2.5 absolute gray-700 right-0 top-0 cursor-pointer" onClick={() => setSearchInput("")}>
-    							{/* Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. */}
-    							<path fill="#9CA3AF" d="M175 175C184.4 165.7 199.6 165.7 208.1 175L255.1 222.1L303 175C312.4 165.7 327.6 165.7 336.1 175C346.3 184.4 346.3 199.6 336.1 208.1L289.9 255.1L336.1 303C346.3 312.4 346.3 327.6 336.1 336.1C327.6 346.3 312.4 346.3 303 336.1L255.1 289.9L208.1 336.1C199.6 346.3 184.4 346.3 175 336.1C165.7 327.6 165.7 312.4 175 303L222.1 255.1L175 208.1C165.7 199.6 165.7 184.4 175 175V175zM512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z" />
-    						</svg>
+                            <button ref={clearSearchInput} onClick={() => setSearchInput("")} className="absolute text-gray-500 -translate-y-1/2 right-2 focus:outline-none top-1/2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </button>
                         </>)}
 
                     </div>
