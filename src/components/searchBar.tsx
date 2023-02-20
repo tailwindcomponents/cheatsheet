@@ -20,7 +20,7 @@ const SearchBar = (props: any) => {
                     </div>
 
                     <div className="h-10 sm:w-96 xl:w-80 2xl:w-96 mt-4 sm:mx-auto lg:m-0">
-                        <input ref={searchInput} className="h-full w-full text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20" type="text" placeholder="Search" onChange={props.search} />
+                        <input ref={searchInput} className="h-full w-full text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20" type="text" placeholder="Search" onChange={e => props.search(e.target.value)} />
                     </div>
 
                     <div className="flex flex-col mt-4 space-y-3 lg:mt-0 sm:flex-row sm:space-y-0 sm:space-x-3 sm:items-center sm:justify-center">
