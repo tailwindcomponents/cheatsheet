@@ -35,7 +35,6 @@ const SearchBar = (props: any) => {
                                 </svg>
                             </button>
                         </>)}
-
                     </div>
 
                     <div className="flex flex-col mt-4 space-y-3 lg:mt-0 sm:flex-row sm:space-y-0 sm:space-x-3 sm:items-center sm:justify-center">
