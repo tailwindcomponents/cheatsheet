@@ -2,6 +2,13 @@ import React, { useRef, useEffect } from 'react';
 import { ReactComponent as Logo } from '../images/logo.svg';
 import { dispatch } from 'use-bus';
 
+let searchTimeout: number | null = null
+function clearSearch() {
+    if (searchTimeout !== null) {
+        clearTimeout(searchTimeout)
+    }
+}
+
 const SearchBar = (props: any) => {
     const tailwindVersion = "3.0.24";
     const searchInput: any = useRef(null);
@@ -10,11 +17,18 @@ const SearchBar = (props: any) => {
         searchInput.current.focus();
     });
 
+    // The search is currently very expensive, as it redraws many elements on
+    // the screen. This little wrapper adds an artificial delay so that the
+    // app doesn't block user input.
     const search = (event: any) => {
         const text: string = event.target.value
-        if (0 < text.length && text.length < 4) return
-
-        props.search(text)
+        if (text.length < 5) {
+            clearSearch()
+            searchTimeout = window.setTimeout(() => props.search(text), 300)
+        } else {
+            clearSearch()
+            props.search(text)
+        }
     }
 
     return (
