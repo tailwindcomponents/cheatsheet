@@ -2,19 +2,49 @@ import React, { useRef, useEffect, useState } from 'react';
 import { ReactComponent as Logo } from '../images/logo.svg';
 import { dispatch } from 'use-bus';
 
+let searchTimeout: number | null = null
+function clearSearch() {
+    if (searchTimeout !== null) {
+        clearTimeout(searchTimeout)
+    }
+}
+
 const SearchBar = (props: any) => {
     const tailwindVersion = "3.0.24";
-	const [searchInput, setSearchInput] = useState("");
-    const searchInputRef: any = useRef(null);
-	const clearSearchInput: any = useRef(null);
+    const searchInputRef = useRef<HTMLInputElement>(null);
     
     useEffect(() => {
-        searchInputRef.current.focus();
+        searchInputRef?.current?.focus();
     }, []);
 
-    useEffect(() => {
-		props.search(searchInput);
-	}, [searchInput]);
+    // The search is currently very expensive, as it redraws many elements on
+    // the screen. This little wrapper adds an artificial delay so that the
+    // app doesn't block user input.
+    const search = (event: any) => {
+        const text: string = event.target.value
+        if (text.length < 5) {
+            clearSearch()
+            searchTimeout = window.setTimeout(() => props.search(text), 300)
+        } else {
+            clearSearch()
+            props.search(text)
+        }
+    }
+
+    const clearInput = () => {
+        const inputElement = searchInputRef?.current
+        if (inputElement) {
+            inputElement.value = ''
+            clearSearch()
+            props.search('')
+        }
+    }
+
+    let shouldRenderClearBtn = false
+    const length = searchInputRef?.current?.value?.length
+    if (length !== undefined && length > 0) {
+        shouldRenderClearBtn = true
+    }
 
     return (
         <div className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 lg:fixed lg:w-full lg:top-0 lg:z-50 lg:left-0">
@@ -26,12 +56,11 @@ const SearchBar = (props: any) => {
                     </div>
 
                     <div className="relative h-10 mt-4 sm:w-96 xl:w-80 2xl:w-96 sm:mx-auto lg:m-0">
-                        <input ref={searchInputRef} className="w-full h-full text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20" type="text" placeholder="Search" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
-
-                        {searchInput.length > 0 && (<>
-                            <button ref={clearSearchInput} onClick={() => setSearchInput("")} className="absolute text-gray-500 -translate-y-1/2 right-2 focus:outline-none top-1/2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <input ref={searchInputRef} className="w-full h-full text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20" type="text" placeholder="Search" onChange={search} />
+                        {shouldRenderClearBtn && (<>
+                            <button onClick={clearInput} className="absolute text-gray-500 -translate-y-1/2 right-2 focus:outline-none top-1/2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </button>
                         </>)}
