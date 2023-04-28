@@ -9650,7 +9650,7 @@
             {
                 "title": "Align Items",
                 "docs": "https://tailwindcss.com/docs/flexbox-align-items",
-                "description": "Sets flex items position along a contrainer's cross axis.",
+                "description": "Sets flex items position along a container's cross axis.",
                 "table": [
                     [
                         "items-stretch",
