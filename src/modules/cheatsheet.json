@@ -8401,7 +8401,7 @@
             },
             {
                 "title": "Flex Shrink",
-                "docs": "https://tailwindcss.com/docs/shrink",
+                "docs": "https://tailwindcss.com/docs/flex-shrink",
                 "description": "Controls how flex items shrink.",
                 "table": [
                     [
@@ -14040,7 +14040,7 @@
             },
             {
                 "title": "Font Smoothing",
-                "docs": "https://tailwindcss.com/docs/text-smoothing",
+                "docs": "https://tailwindcss.com/docs/font-smoothing",
                 "description": "",
                 "table": [
                     [
