@@ -13,8 +13,24 @@ const SearchBar = (props: any) => {
     const tailwindVersion = "3.0.24";
     const searchInputRef = useRef<HTMLInputElement>(null);
     
+    const handleFocus = (e: KeyboardEvent) => {
+        if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
+            //preventDefault if ctrl + k is already binded to any browser function
+            e.preventDefault();
+            searchInputRef?.current?.focus();
+        }
+
+        if (e.key === "Escape") {
+            searchInputRef?.current?.blur();
+        }
+    };
+
     useEffect(() => {
         searchInputRef?.current?.focus();
+        document.addEventListener("keydown", handleFocus);
+        return () => {
+            document.removeEventListener("keydown", handleFocus);
+        };
     }, []);
 
     // The search is currently very expensive, as it redraws many elements on
