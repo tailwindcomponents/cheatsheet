@@ -26,7 +26,6 @@ const SearchBar = (props: any) => {
     };
 
     useEffect(() => {
-        searchInputRef?.current?.focus();
         document.addEventListener("keydown", handleFocus);
         return () => {
             document.removeEventListener("keydown", handleFocus);
@@ -78,6 +77,7 @@ const SearchBar = (props: any) => {
                             type="text"
                             placeholder="Search"
                             onChange={search}
+                            autoFocus
                         />
                         {shouldRenderClearBtn ? (
                             <button onClick={clearInput} className="absolute text-gray-500 -translate-y-1/2 right-2 focus:outline-none top-1/2">
