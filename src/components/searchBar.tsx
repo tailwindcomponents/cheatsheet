@@ -72,14 +72,24 @@ const SearchBar = (props: any) => {
                     </div>
 
                     <div className="relative h-10 mt-4 sm:w-96 xl:w-80 2xl:w-96 sm:mx-auto lg:m-0">
-                        <input ref={searchInputRef} className="w-full h-full text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20" type="text" placeholder="Search" onChange={search} />
-                        {shouldRenderClearBtn && (<>
+                        <input
+                            ref={searchInputRef}
+                            className="w-full h-full peer text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20"
+                            type="text"
+                            placeholder="Search"
+                            onChange={search}
+                        />
+                        {shouldRenderClearBtn ? (
                             <button onClick={clearInput} className="absolute text-gray-500 -translate-y-1/2 right-2 focus:outline-none top-1/2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </button>
-                        </>)}
+                        ) : (
+                            <span className="absolute -translate-y-1/2 right-2 top-1/2 peer-focus:opacity-0 transition-opacity duration-75 border-gray-500 pointer-events-none border px-2 rounded-md text-gray-400  dark:text-gray-400 ">
+                                Ctrl + k
+                            </span>
+                        )}
                     </div>
 
                     <div className="flex flex-col mt-4 space-y-3 lg:mt-0 sm:flex-row sm:space-y-0 sm:space-x-3 sm:items-center sm:justify-center">
