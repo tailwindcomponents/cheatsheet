@@ -47,7 +47,7 @@ const Home = (props: any) => {
     };
 
     return (
-        <main className={"tracking-wide font-roboto min-h-screen grid " + (JSON.parse(localStorage.getItem('darkMode') || '{}') ? 'dark bg-gray-900' : '')}>
+        <main className={"tracking-wide font-roboto min-h-screen grid content-start " + (JSON.parse(localStorage.getItem('darkMode') || '{}') ? 'dark bg-gray-900' : '')}>
             <SearchBar search={search} />
             <Tagline />
             <Categories cheatsheet={cheatsheet} />
