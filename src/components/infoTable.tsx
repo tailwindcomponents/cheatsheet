@@ -18,7 +18,7 @@ const InfoTable = ({ table }: any) => {
             return <div className="w-6 h-6 bg-white border rounded"></div>
         }
 
-        return text.split('\n').map(subtext => <p>{subtext}</p>);
+        return text.split('\n').map((subtext,index) => <p key={index}>{subtext}</p>);
     };
 
     function handleClick(td: string) {
