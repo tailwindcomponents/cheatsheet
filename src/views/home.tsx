@@ -8,6 +8,7 @@ import { trackView, trackSearch } from '../utils/googleAnalytics';
 import SearchBar from '../components/searchBar';
 import Categories from '../components/categories';
 import Footer from '../components/footer';
+import Tagline from '../components/tagline';
 
 const Home = (props: any) => {
     const json: Category[] = require('../modules/cheatsheet.json');
@@ -48,6 +49,7 @@ const Home = (props: any) => {
     return (
         <main className={"tracking-wide font-roboto min-h-screen grid " + (JSON.parse(localStorage.getItem('darkMode') || '{}') ? 'dark bg-gray-900' : '')}>
             <SearchBar search={search} />
+            <Tagline />
             <Categories cheatsheet={cheatsheet} />
             <Footer />
         </main>
