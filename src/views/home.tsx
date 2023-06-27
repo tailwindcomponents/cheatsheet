@@ -21,24 +21,33 @@ const Home = (props: any) => {
     const search = (text: string) => {
         let newCheatsheet: Category[] = json.map((category: Category) => {
             return {
-                ...category,
-                'content': category.content.map((subcategory: Subcategory) => {
-                    return {
-                        ...subcategory,
-                        // Si el texto de búsqueda existe en el título o la descripción se muestra toda la tabla, si no pues se filtra en ella
-                        'table': subcategory.title.includes(text) || subcategory.description.includes(text) ? subcategory.table : subcategory.table.filter(tr => {
-                            let isValid = false;
-
-                            tr.forEach(td => {
-                                if (!isValid) {
-                                    isValid = td.includes(text);
-                                }
-                            });
-
-                            return isValid;
-                        }),
-                    };
-                }),
+                // TODO try to add category table into considiration when searching. should reduce mapping
+                title: category.title,
+                content: category.content.map((subcategory: Subcategory) => {
+					// Si el texto de búsqueda existe en el título o la descripción se muestra toda la tabla, si no pues se filtra en ella
+					// If the search text exists in the title or description, the entire table is displayed, if not, then it is filtered on it
+					if (
+						subcategory.title.toLowerCase().includes(text) ||
+						subcategory.description.toLowerCase().includes(text)
+					) {
+						return subcategory;
+					} else {
+						return {
+							title: subcategory.title,
+							docs: subcategory.docs,
+							description: subcategory.description,
+							table: subcategory.table.filter((tr) => {
+								//no forEach needed as we need only one match to show entire row
+								for (let td = 0; td < tr.length; td++) {
+									if (tr[td].includes(text)) {
+										return true;
+									}
+								}
+								return false;
+							}),
+						};
+					}
+				}),
             };
         });
 
