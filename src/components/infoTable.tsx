@@ -18,7 +18,7 @@ const InfoTable = ({ table }: any) => {
             return <div className="w-6 h-6 bg-white border rounded"></div>
         }
 
-        return text.split('\n').map(subtext => <p>{subtext}</p>);
+        return text.split('\n').map((subtext,index) => <p key={index}>{subtext}</p>);
     };
 
     function handleClick(td: string) {
@@ -37,7 +37,9 @@ const InfoTable = ({ table }: any) => {
                 {
                     table.map((tr: string[], index: Number) => {
                         return (
-                            <tr key={'tr-' + index}>
+                            <tr
+                                key={'tr-' + index}
+                                className={"border-b border-gray-300 dark:border-gray-700"}>
                                 {
                                     tr.map((td: string, index: Number) => {
                                         return (
@@ -49,7 +51,7 @@ const InfoTable = ({ table }: any) => {
                                                     );
                                                 }}
                                                 key={'td-' + index}
-                                                className={classNames('cursor-copy font-mono text-xs hover:underline p-2 border-b border-gray-300 dark:border-gray-700', {
+                                                className={classNames('cursor-copy font-mono text-xs hover:underline p-2', {
                                                     'text-purple-700 dark:text-purple-300 whitespace-nowrap': index === 0,
                                                     'text-blue-700 dark:text-blue-300': index === 1,
                                                     'text-gray-500 dark:text-gray-300 text-xs': index === 2,

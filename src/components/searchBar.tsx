@@ -36,7 +36,7 @@ const SearchBar = (props: any) => {
     // the screen. This little wrapper adds an artificial delay so that the
     // app doesn't block user input.
     const search = (event: any) => {
-        const text: string = event.target.value
+        const text: string = event.target.value.toLowerCase();
         if (text.length < 5) {
             clearSearch()
             searchTimeout = window.setTimeout(() => props.search(text), 300)
