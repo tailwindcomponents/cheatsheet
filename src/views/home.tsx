@@ -10,7 +10,7 @@ import Categories from '../components/categories';
 import Footer from '../components/footer';
 import Tagline from '../components/tagline';
 
-const Home = (props: any) => {
+const Home = () => {
     const json: Category[] = require('../modules/cheatsheet.json');
     const [searchText, setSearchText] = useState<string>("");
 

@@ -3,9 +3,9 @@ import classNames from "classnames";
 import InfoTable from './infoTable';
 import useBus from 'use-bus';
 
-import Subcategory from "../modules/models/subcategory";
+import SubcategoryType from "../modules/models/subcategory";
 
-const Subcategory = ({ subcategory }: { subcategory : Subcategory }) => {
+const Subcategory = ({ subcategory }: { subcategory : SubcategoryType }) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const toggleCollapse = (): void => {
