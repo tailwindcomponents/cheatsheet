@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { copyTextToClipboard } from '../utils/copyTextToClipboard';
 import { Toast } from "./toast";
 
-const InfoTable = ({ table }: any) => {
+const InfoTable = ({ table } : { table : string[][] }) => {
     const [showToast, setShowToast] = useState(false);
     const [toastText, setToastText] = useState("");
 
