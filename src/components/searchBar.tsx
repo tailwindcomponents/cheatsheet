@@ -73,7 +73,7 @@ const SearchBar = (props: any) => {
                     <div className="relative h-10 mt-4 sm:w-96 xl:w-80 2xl:w-96 sm:mx-auto lg:m-0">
                         <input
                             ref={searchInputRef}
-                            className="w-full h-full peer text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20"
+                            className="w-full h-full text-gray-700 bg-white border border-gray-200 rounded-lg peer dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20"
                             type="text"
                             placeholder="Search"
                             onChange={search}
@@ -86,8 +86,8 @@ const SearchBar = (props: any) => {
                                 </svg>
                             </button>
                         ) : (
-                            <span className="absolute -translate-y-1/2 right-2 top-1/2 peer-focus:opacity-0 transition-opacity duration-75 border-gray-500 pointer-events-none border px-2 rounded-md text-gray-400  dark:text-gray-400 ">
-                                Ctrl + k
+                            <span className="absolute px-2 py-1 text-xs text-gray-400 transition-opacity duration-75 -translate-y-1/2 border rounded-lg pointer-events-none py- dark:border-gray-700 right-2 top-1/2 peer-focus:opacity-0 dark:text-gray-400 ">
+                                Ctrl k
                             </span>
                         )}
                     </div>
