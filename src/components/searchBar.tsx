@@ -9,7 +9,7 @@ function clearSearch() {
     }
 }
 
-const SearchBar = (props: any) => {
+const SearchBar = ({ searchFilter }: { searchFilter : ( text:string ) => void }) => {
     const tailwindVersion = "3.0.24";
     const searchInputRef = useRef<HTMLInputElement>(null);
     
@@ -39,10 +39,10 @@ const SearchBar = (props: any) => {
         const text: string = event.target.value.toLowerCase();
         if (text.length < 5) {
             clearSearch()
-            searchTimeout = window.setTimeout(() => props.search(text), 300)
+            searchTimeout = window.setTimeout(() => searchFilter(text), 300)
         } else {
             clearSearch()
-            props.search(text)
+            searchFilter(text)
         }
     }
 
@@ -51,7 +51,7 @@ const SearchBar = (props: any) => {
         if (inputElement) {
             inputElement.value = ''
             clearSearch()
-            props.search('')
+            searchFilter('')
         }
     }
 

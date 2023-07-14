@@ -10,7 +10,7 @@ import Categories from '../components/categories';
 import Footer from '../components/footer';
 import Tagline from '../components/tagline';
 
-const Home = (props: any) => {
+const Home = () => {
     const json: Category[] = require('../modules/cheatsheet.json');
     const [cheatsheet, setCheatsheet] = useState<Category[]>(json);
 
@@ -60,7 +60,7 @@ const Home = (props: any) => {
 
     return (
         <main className={"tracking-wide font-roboto min-h-screen grid content-start " + (JSON.parse(localStorage.getItem('darkMode') || '{}') ? 'dark bg-gray-900' : '')}>
-            <SearchBar search={search} />
+            <SearchBar searchFilter={search} />
             <Tagline />
             <Categories cheatsheet={cheatsheet} />
             <Footer />
