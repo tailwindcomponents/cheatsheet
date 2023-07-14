@@ -12,14 +12,14 @@ import Tagline from '../components/tagline';
 
 const Home = () => {
     const json: Category[] = require('../modules/cheatsheet.json');
-    const [searchText, setSearchText] = useState<string>("");
+    const [cheatsheet, setCheatsheet] = useState<Category[]>(json);
 
     useEffect(() => {
         trackView('/cheatsheet');
     }, []);
 
-    const searchFilter = (text: string) => {
-        const newCheatsheet: Category[] = json.map((category: Category) => {
+    const search = (text: string) => {
+        let newCheatsheet: Category[] = json.map((category: Category) => {
             if (category.title.toLowerCase().includes(text)) {
                 return category;
             } else {
@@ -54,17 +54,15 @@ const Home = () => {
             };
         });
 
+        setCheatsheet(newCheatsheet);
         trackSearch(text);
-        return newCheatsheet;
     };
-
-    const filteredCheatsheet = searchFilter(searchText);
 
     return (
         <main className={"tracking-wide font-roboto min-h-screen grid content-start " + (JSON.parse(localStorage.getItem('darkMode') || '{}') ? 'dark bg-gray-900' : '')}>
-            <SearchBar searchText={searchText} setSearchText={setSearchText} />
+            <SearchBar search={search} />
             <Tagline />
-            <Categories cheatsheet={filteredCheatsheet} />
+            <Categories cheatsheet={cheatsheet} />
             <Footer />
         </main>
     );

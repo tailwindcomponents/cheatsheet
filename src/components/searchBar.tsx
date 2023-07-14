@@ -1,21 +1,18 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { ReactComponent as Logo } from '../images/logo.svg';
 import { dispatch } from 'use-bus';
 
-let searchTimeout: number | null = null;
+let searchTimeout: number | null = null
 function clearSearch() {
     if (searchTimeout !== null) {
-        clearTimeout(searchTimeout);
+        clearTimeout(searchTimeout)
     }
 }
 
-const SearchBar = ( { searchText, setSearchText } : {
-	searchText: string;
-	setSearchText: (value: string) => void;
-} ) => {
+const SearchBar = (props: any) => {
     const tailwindVersion = "3.0.24";
     const searchInputRef = useRef<HTMLInputElement>(null);
-
+    
     const handleFocus = (e: KeyboardEvent) => {
         if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
             //preventDefault if ctrl + k is already binded to any browser function
@@ -40,20 +37,29 @@ const SearchBar = ( { searchText, setSearchText } : {
     // app doesn't block user input.
     const search = (event: any) => {
         const text: string = event.target.value.toLowerCase();
-        clearSearch();
         if (text.length < 5) {
-            searchTimeout = window.setTimeout(() => setSearchText(text), 300);
+            clearSearch()
+            searchTimeout = window.setTimeout(() => props.search(text), 300)
         } else {
-            setSearchText(text);
+            clearSearch()
+            props.search(text)
         }
     }
 
     const clearInput = () => {
-        clearSearch();
-        setSearchText("");
+        const inputElement = searchInputRef?.current
+        if (inputElement) {
+            inputElement.value = ''
+            clearSearch()
+            props.search('')
+        }
     }
 
-    const shouldRenderClearBtn = !!searchText.length;
+    let shouldRenderClearBtn = false
+    const length = searchInputRef?.current?.value?.length
+    if (length !== undefined && length > 0) {
+        shouldRenderClearBtn = true
+    }
 
     return (
         <div className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 lg:fixed lg:w-full lg:top-0 lg:z-50 lg:left-0">
@@ -66,7 +72,6 @@ const SearchBar = ( { searchText, setSearchText } : {
 
                     <div className="relative h-10 mt-4 sm:w-96 xl:w-80 2xl:w-96 sm:mx-auto lg:m-0">
                         <input
-                            value={searchText}
                             ref={searchInputRef}
                             className="w-full h-full peer text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20"
                             type="text"
