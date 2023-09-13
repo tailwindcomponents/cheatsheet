@@ -7471,7 +7471,7 @@
                 "description": "Controls how flex items grow.",
                 "table": [
                     [
-                        "flex-grow",
+                        "grow",
                         "flex-grow: 1;"
                     ],
                     [
@@ -10363,7 +10363,7 @@
                 "description": "Utilities for controlling the style of an element's outline.",
                 "table": [
                     [
-                        "outline-solid",
+                        "outline",
                         "outline-style: solid;"
                     ],
                     [
@@ -10379,12 +10379,8 @@
                         "outline-style: double;"
                     ],
                     [
-                        "outline-hidden",
-                        "outline-style: hidden;"
-                    ],
-                    [
                         "outline-none",
-                        "outline-style: none;"
+                        "outline-style: none; outline: 2px solid transparent; outline-offset: 2px;"
                     ]
                 ]
             },
