@@ -5,7 +5,7 @@ import useBus from 'use-bus';
 
 import SubcategoryType from "../modules/models/subcategory";
 
-const Subcategory = ({ subcategory }: { subcategory : SubcategoryType }) => {
+const Subcategory = ({ subcategory,shouldHide }: { subcategory : SubcategoryType, shouldHide?:boolean }) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const toggleCollapse = (): void => {
@@ -27,7 +27,7 @@ const Subcategory = ({ subcategory }: { subcategory : SubcategoryType }) => {
     );
 
     return (
-        <div>
+        <div className={shouldHide??false?"hidden":"block"}>
             <div
               className="flex items-center px-3 py-2 text-gray-700 transition-colors duration-300 transform border-gray-300 cursor-pointer dark:hover:bg-gray-600 dark:text-gray-300 hover:bg-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
               onClick={toggleCollapse}
