@@ -11,7 +11,7 @@ const ChevronDown = () => {
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-      className="w-6 h-6"
+      className="w-4 h-4"
     >
       <path
         stroke-linecap="round"
@@ -30,12 +30,12 @@ const ArrowDown = ({
   value: boolean;
 }) => {
   return (
-    <span
+    <button
       onClick={action}
-      className={value ? "rotate-180" : "rotate-0"}
+      className={"duration-300 text-gray-500 " + (value ? "rotate-180" : "rotate-0")}
     >
       <ChevronDown />
-    </span>
+    </button>
   );
 };
 
@@ -52,7 +52,7 @@ const Category = ({ category }: { category: CategoryType }) => {
     >
       <div
         className={
-          "flex justify-center font-bold text-gray-800 dark:bg-gray-700 dark:text-gray-200 tracking-wider bg-gray-200 rounded-md px-3 py-2 mx-3 mb-2"
+          "flex justify-center items-center font-bold text-gray-800 dark:bg-gray-700 dark:text-gray-200 tracking-wider bg-gray-200 rounded-md px-3 py-2 mx-3 mb-2"
         }
       >
         <h1 className={"grow "}>{category.title}</h1>

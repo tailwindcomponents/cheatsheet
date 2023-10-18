@@ -27,7 +27,7 @@ const Subcategory = ({ subcategory,shouldHide }: { subcategory : SubcategoryType
     );
 
     return (
-        <div className={shouldHide??false?"hidden":"block"}>
+        <div className={shouldHide ?? false ? "hidden" : "block"}>
             <div
               className="flex items-center px-3 py-2 text-gray-700 transition-colors duration-300 transform border-gray-300 cursor-pointer dark:hover:bg-gray-600 dark:text-gray-300 hover:bg-gray-200 hover:text-gray-900 dark:hover:text-gray-100"
               onClick={toggleCollapse}
