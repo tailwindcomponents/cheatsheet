@@ -25,13 +25,16 @@ const ChevronDown = () => {
 const ArrowDown = ({
   action,
   value,
+  'aria-label': ariaLabel,
 }: {
   action: () => void;
   value: boolean;
+  'aria-label'?: string;
 }) => {
   return (
     <button
       onClick={action}
+      aria-label={ariaLabel}
       className={"duration-300 text-gray-500 " + (value ? "rotate-180" : "rotate-0")}
     >
       <ChevronDown />
@@ -56,7 +59,7 @@ const Category = ({ category }: { category: CategoryType }) => {
         }
       >
         <h1 className={"grow "}>{category.title}</h1>
-        <ArrowDown action={toggle} value={isOpen} />
+        <ArrowDown action={toggle} value={isOpen} aria-label={`${isOpen ? 'Close' : 'Open'} ${category.title} category`} />
       </div>
       {
         category.content.map((subcategory: Subcategory, index: Number) => {
