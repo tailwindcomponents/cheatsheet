@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { ReactComponent as Logo } from '../images/logo.svg';
 import { dispatch } from 'use-bus';
+import { useLocation } from 'react-router-dom';
 
 let searchTimeout: number | null = null
 function clearSearch() {
@@ -9,7 +10,18 @@ function clearSearch() {
     }
 }
 
+const useSearchParams = () => {
+    return new URLSearchParams(useLocation().search);
+}
+
 const SearchBar = ({ searchFilter }: { searchFilter : ( text:string ) => void }) => {
+    const query = useSearchParams().get('q') ?? undefined;
+
+    useEffect(() => {
+        searchFilter(query || '');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     const tailwindVersion = "3.0.24";
     const searchInputRef = useRef<HTMLInputElement>(null);
     
@@ -76,6 +88,7 @@ const SearchBar = ({ searchFilter }: { searchFilter : ( text:string ) => void })
                             className="w-full h-full text-gray-700 bg-white border border-gray-200 rounded-lg peer dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20"
                             type="text"
                             placeholder="Search"
+                            defaultValue={query}
                             onChange={search}
                             autoFocus
                         />
