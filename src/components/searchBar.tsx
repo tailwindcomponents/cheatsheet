@@ -10,8 +10,13 @@ function clearSearch() {
     }
 }
 
+const useSearchParams = () => {
+    const foo = new URLSearchParams(useLocation().search);
+    return foo;
+}
+
 const SearchBar = ({ searchFilter }: { searchFilter : ( text:string ) => void }) => {
-    const query = useLocation<{q: string | undefined}>().search.split('?q=').pop();
+    const query = useSearchParams().get('q') ?? undefined;
 
     useEffect(() => {
         searchFilter(query || '');
