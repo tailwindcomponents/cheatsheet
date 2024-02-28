@@ -11,8 +11,7 @@ function clearSearch() {
 }
 
 const useSearchParams = () => {
-    const foo = new URLSearchParams(useLocation().search);
-    return foo;
+    return new URLSearchParams(useLocation().search);
 }
 
 const SearchBar = ({ searchFilter }: { searchFilter : ( text:string ) => void }) => {
