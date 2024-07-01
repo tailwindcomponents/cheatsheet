@@ -22,7 +22,7 @@ const Home = () => {
         let newCheatsheet: Category[] = json.map((category: Category) => {
             if (window.history?.pushState) {
                 const { origin, pathname } = window.location;
-                const newUrl = `${origin}${pathname}?q=${text}`;
+                const newUrl = `${origin}${pathname}${text ? `?q=${text}` : ''}`;
                 window.history.pushState({ path: newUrl }, '', newUrl);
             }
             if (category.title.toLowerCase().includes(text)) {
