@@ -2451,55 +2451,55 @@
                     ],
                     [
                         "inset-80",
-                        "top: 20;\nright: 20;\nbottom: 20;\nleft: 20;"
+                        "top: 20rem;\nright: 20rem;\nbottom: 20rem;\nleft: 20rem;"
                     ],
                     [
                         "-inset-80",
-                        "top: -20;\nright: -20;\nbottom: -20;\nleft: -20;"
+                        "top: -20rem;\nright: -20rem;\nbottom: -20rem;\nleft: -20rem;"
                     ],
                     [
                         "inset-y-80",
-                        "top: 20;\nbottom: 20;"
+                        "top: 20rem;\nbottom: 20rem;"
                     ],
                     [
                         "-inset-y-80",
-                        "top: -20;\nbottom: -20;"
+                        "top: -20rem;\nbottom: -20rem;"
                     ],
                     [
                         "inset-x-80",
-                        "right: 20;\nleft: 20;"
+                        "right: 20rem;\nleft: 20rem;"
                     ],
                     [
                         "-inset-x-80",
-                        "right: -20;\nleft: -20;"
+                        "right: -20rem;\nleft: -20rem;"
                     ],
                     [
                         "top-80",
-                        "top: 20;"
+                        "top: 20rem;"
                     ],
                     [
                         "right-80",
-                        "right: 20;"
+                        "right: 20rem;"
                     ],
                     [
                         "bottom-80",
-                        "bottom: 20;"
+                        "bottom: 20rem;"
                     ],
                     [
                         "left-80",
-                        "left: 20;"
+                        "left: 20rem;"
                     ],
                     [
                         "-top-80",
-                        "top: -20;"
+                        "top: -20rem;"
                     ],
                     [
                         "-right-80",
-                        "right: -20;"
+                        "right: -20rem;"
                     ],
                     [
                         "-bottom-80",
-                        "bottom: -20;"
+                        "bottom: -20rem;"
                     ],
                     [
                         "-left-80",
