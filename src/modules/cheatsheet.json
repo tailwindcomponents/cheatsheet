@@ -13996,7 +13996,7 @@
                     ],
                     [
                         "bg-opacity-5",
-                        "--bg-opacity: 0.5;"
+                        "--bg-opacity: 0.05;"
                     ],
                     [
                         "bg-opacity-10",
