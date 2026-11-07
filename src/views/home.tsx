@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Category from '../modules/models/category';
-import Subcategory from '../modules/models/subcategory';
+import { filterCheatsheet } from '../utils/filterCheatsheet';
 
 import { trackView, trackSearch } from '../utils/googleAnalytics';
 
@@ -18,28 +18,7 @@ const Home = (props: any) => {
     }, []);
 
     const search = (text: string) => {
-        let newCheatsheet: Category[] = json.map((category: Category) => {
-            return {
-                ...category,
-                'content': category.content.map((subcategory: Subcategory) => {
-                    return {
-                        ...subcategory,
-                        // Si el texto de búsqueda existe en el título o la descripción se muestra toda la tabla, si no pues se filtra en ella
-                        'table': subcategory.title.includes(text) || subcategory.description.includes(text) ? subcategory.table : subcategory.table.filter(tr => {
-                            let isValid = false;
-
-                            tr.forEach(td => {
-                                if (!isValid) {
-                                    isValid = td.includes(text);
-                                }
-                            });
-
-                            return isValid;
-                        }),
-                    };
-                }),
-            };
-        });
+        const newCheatsheet = filterCheatsheet(json, text);
 
         setCheatsheet(newCheatsheet);
         trackSearch(text);

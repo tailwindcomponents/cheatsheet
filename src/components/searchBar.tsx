@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { ReactComponent as Logo } from '../images/logo.svg';
 import { dispatch } from 'use-bus';
 
