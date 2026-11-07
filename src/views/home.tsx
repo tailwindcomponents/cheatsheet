@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import Category from '../modules/models/category';
 import cheatsheetData from '../modules/cheatsheet.json';
 import { filterCheatsheet } from '../utils/filterCheatsheet';
-import { trackView, trackSearch } from '../utils/googleAnalytics';
 
 import SearchBar from '../components/searchBar';
 import Categories from '../components/categories';
@@ -22,13 +21,8 @@ const isDarkMode = (): boolean => {
 const Home = () => {
     const [cheatsheet, setCheatsheet] = useState<Category[]>(json);
 
-    useEffect(() => {
-        trackView('/cheatsheet');
-    }, []);
-
     const search = (text: string) => {
         setCheatsheet(filterCheatsheet(json, text));
-        trackSearch(text);
     };
 
     return (
