@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 
-const NoMatch = (props: any) => (
+const NoMatch = () => (
     <div>
         <h1>Error 404</h1>
-        <Link className="text-purple-700" to="https://tailwindcomponents.com/">Go to home</Link>
+        <a className="text-purple-700" href="https://tailwindcomponents.com/">Go to home</a>
     </div>
 );
 

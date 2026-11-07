@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = (props: any) => (
+const Footer = () => (
     <footer className="mt-auto dark:bg-gray-900">
         <div className="container px-6 pt-16 mx-auto">
             <div className="flex flex-col items-center">

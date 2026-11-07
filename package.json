@@ -3,37 +3,31 @@
     "version": "1.0.0",
     "private": true,
     "dependencies": {
-        "@babel/compat-data": "^7.16.4",
-        "@babel/preset-env": "^7.16.7",
-        "@tailwindcss/forms": "^0.4.0",
-        "@testing-library/jest-dom": "^5.16.1",
-        "@testing-library/react": "^9.5.0",
-        "@testing-library/user-event": "^10.0.0",
-        "@types/classnames": "^2.3.1",
-        "@types/jest": "^25.1.3",
-        "@types/node": "^13.7.7",
-        "@types/react": "^16.9.23",
-        "@types/react-dom": "^16.9.0",
-        "@types/react-redux": "^7.1.21",
-        "@types/react-router-dom": "^5.3.2",
-        "autoprefixer": "^10.4.1",
-        "classnames": "^2.3.1",
-        "connected-react-router": "^6.9.2",
-        "postcss": "^8.4.5",
+        "classnames": "^2.3.2",
+        "history": "^4.10.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-ga": "^3.3.1",
         "react-masonry-css": "^1.0.16",
-        "react-redux": "^7.2.6",
-        "react-router": "^5.1.2",
-        "react-router-dom": "^5.1.2",
-        "redux": "^4.1.2",
-        "tailwindcss": "^3.1.8",
-        "typescript": "~3.8.3",
+        "react-router": "^5.3.4",
+        "react-router-dom": "^5.3.4",
         "use-bus": "1.1.1"
     },
     "devDependencies": {
-        "react-scripts": "^5.0.0"
+        "@tailwindcss/forms": "^0.5.3",
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^12.1.5",
+        "@testing-library/user-event": "^14.4.3",
+        "@types/jest": "^27.5.2",
+        "@types/node": "^18.11.18",
+        "@types/react": "^17.0.53",
+        "@types/react-dom": "^17.0.18",
+        "@types/react-router-dom": "^5.3.3",
+        "autoprefixer": "^10.4.13",
+        "postcss": "^8.4.21",
+        "react-scripts": "^5.0.1",
+        "tailwindcss": "^3.2.4",
+        "typescript": "~4.9.5"
     },
     "scripts": {
         "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
@@ -55,5 +49,8 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "resolutions": {
+        "@types/react": "^17.0.53"
     }
 }
