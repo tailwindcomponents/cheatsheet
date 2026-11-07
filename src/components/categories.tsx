@@ -3,7 +3,7 @@ import Masonry from 'react-masonry-css';
 import Category from '../modules/models/category';
 import CategoryComponent from './category';
 
-const Categories = (props: any) => {
+const Categories = ({ cheatsheet }: { cheatsheet: Category[] }) => {
     return (
         <section className="dark:bg-gray-900 lg:pt-24">
             <h1 className="pt-6 text-3xl font-semibold text-center text-gray-800 dark:text-gray-200">
@@ -29,7 +29,7 @@ const Categories = (props: any) => {
                 className="flex flex-wrap p-4 mx-auto mt-4 "
                 columnClassName="w-auto">
                 {
-                    props.cheatsheet.map((category: Category) => <CategoryComponent key={category.title} category={category} />)
+                    cheatsheet.map((category: Category) => <CategoryComponent key={category.title} category={category} />)
                 }
             </Masonry>
         </section>

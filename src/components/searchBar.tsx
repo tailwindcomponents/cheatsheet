@@ -2,49 +2,48 @@ import React, { useRef, useEffect, useState } from 'react';
 import { ReactComponent as Logo } from '../images/logo.svg';
 import { dispatch } from 'use-bus';
 
-let searchTimeout: number | null = null
-function clearSearch() {
-    if (searchTimeout !== null) {
-        clearTimeout(searchTimeout)
-    }
-}
+// Shown in the header badge; this is the Tailwind version the data was crawled from.
+const TAILWIND_VERSION = "3.0.24";
 
-const SearchBar = (props: any) => {
-    const tailwindVersion = "3.0.24";
+const SearchBar = ({ search: onSearch }: { search: (text: string) => void }) => {
     const searchInputRef = useRef<HTMLInputElement>(null);
-    
+    const searchTimeout = useRef<number | null>(null);
+    const [value, setValue] = useState('');
+
     useEffect(() => {
-        searchInputRef?.current?.focus();
+        searchInputRef.current?.focus();
+        return clearSearch;
     }, []);
 
+    function clearSearch() {
+        if (searchTimeout.current !== null) {
+            window.clearTimeout(searchTimeout.current);
+            searchTimeout.current = null;
+        }
+    }
+
     // The search is currently very expensive, as it redraws many elements on
-    // the screen. This little wrapper adds an artificial delay so that the
-    // app doesn't block user input.
-    const search = (event: any) => {
-        const text: string = event.target.value
+    // the screen. Short queries get an artificial delay so that the app
+    // doesn't block user input.
+    const search = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const text = event.target.value;
+        setValue(text);
+        clearSearch();
         if (text.length < 5) {
-            clearSearch()
-            searchTimeout = window.setTimeout(() => props.search(text), 300)
+            searchTimeout.current = window.setTimeout(() => onSearch(text), 300);
         } else {
-            clearSearch()
-            props.search(text)
+            onSearch(text);
         }
     }
 
     const clearInput = () => {
-        const inputElement = searchInputRef?.current
-        if (inputElement) {
-            inputElement.value = ''
-            clearSearch()
-            props.search('')
-        }
+        setValue('');
+        clearSearch();
+        onSearch('');
+        searchInputRef.current?.focus();
     }
 
-    let shouldRenderClearBtn = false
-    const length = searchInputRef?.current?.value?.length
-    if (length !== undefined && length > 0) {
-        shouldRenderClearBtn = true
-    }
+    const shouldRenderClearBtn = value.length > 0;
 
     return (
         <div className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 lg:fixed lg:w-full lg:top-0 lg:z-50 lg:left-0">
@@ -52,11 +51,11 @@ const SearchBar = (props: any) => {
                 <div className="flex flex-col lg:items-center lg:justify-center lg:flex-row lg:space-x-4">
                     <div className="flex flex-col items-center sm:flex-row sm:justify-center">
                         <Logo className="object-cover object-left h-8" />
-                        <h1 className="flex items-center pl-2 mt-2 text-lg text-gray-600 dark:border-gray-700 dark:text-gray-300 lg:mt-0 sm:ml-2 sm:border-l sm:border-gray-400">Cheatsheet <span className="flex items-center h-5 px-2 ml-2 text-xs font-bold text-white rounded-md bg-primary">{tailwindVersion}</span></h1>
+                        <h1 className="flex items-center pl-2 mt-2 text-lg text-gray-600 dark:border-gray-700 dark:text-gray-300 lg:mt-0 sm:ml-2 sm:border-l sm:border-gray-400">Cheatsheet <span className="flex items-center h-5 px-2 ml-2 text-xs font-bold text-white rounded-md bg-primary">{TAILWIND_VERSION}</span></h1>
                     </div>
 
                     <div className="relative h-10 mt-4 sm:w-96 xl:w-80 2xl:w-96 sm:mx-auto lg:m-0">
-                        <input ref={searchInputRef} className="w-full h-full text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20" type="text" placeholder="Search" onChange={search} />
+                        <input ref={searchInputRef} className="w-full h-full text-gray-700 bg-white border border-gray-200 rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-primary dark:focus:border-primary focus:outline-none focus:ring focus:ring-primary dark:placeholder-gray-400 focus:ring-opacity-20" type="text" placeholder="Search" value={value} onChange={search} />
                         {shouldRenderClearBtn && (<>
                             <button onClick={clearInput} className="absolute text-gray-500 -translate-y-1/2 right-2 focus:outline-none top-1/2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">

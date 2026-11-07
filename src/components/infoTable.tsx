@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from "classnames";
 import { copyTextToClipboard } from '../utils/copyTextToClipboard';
 import { Toast } from "./toast";
 
-const InfoTable = ({ table }: any) => {
+const InfoTable = ({ table }: { table: string[][] }) => {
     const [showToast, setShowToast] = useState(false);
     const [toastText, setToastText] = useState("");
 
-    const parseText = (text: string): any => {
+    const parseText = (text: string): React.ReactNode => {
         if(text.includes("rgb(") || text === "transparent")
         {
             return <div className="w-6 h-6 border rounded" style={{backgroundColor: text}}></div>
@@ -21,12 +21,15 @@ const InfoTable = ({ table }: any) => {
         return text;
     };
 
+    useEffect(() => {
+        if (!showToast) return;
+        const timer = setTimeout(() => setShowToast(false), 5000);
+        return () => clearTimeout(timer);
+    }, [showToast, toastText]);
+
     function handleClick(td: string) {
         setToastText(td)
         setShowToast(true)
-        setTimeout(() => {
-            setShowToast(false)
-        }, 5000)
     }
 
     return (
@@ -35,11 +38,11 @@ const InfoTable = ({ table }: any) => {
             <table className="w-full mb-4 bg-gray-100 rounded dark:bg-gray-900">
                 <tbody>
                 {
-                    table.map((tr: string[], index: Number) => {
+                    table.map((tr: string[], index: number) => {
                         return (
                             <tr key={'tr-' + index}>
                                 {
-                                    tr.map((td: string, index: Number) => {
+                                    tr.map((td: string, index: number) => {
                                         return (
                                             <td
                                                 onClick={async () => {

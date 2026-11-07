@@ -1,22 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import store, { history } from './store';
+import { BrowserRouter } from 'react-router-dom';
 import App from './views/app';
 import * as serviceWorker from './serviceWorker';
 
 import './css/index.css';
 
-const target = document.querySelector('#root');
-
 render(
-	<Provider store={store}>
-		<ConnectedRouter history={history}>
-			<App />
-		</ConnectedRouter>
-	</Provider>,
-	target
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <App />
+    </BrowserRouter>,
+    document.querySelector('#root')
 );
 
 serviceWorker.unregister();

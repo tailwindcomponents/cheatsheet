@@ -1,9 +1,10 @@
 import React, { useState, MouseEvent } from 'react';
 import classNames from "classnames";
+import SubcategoryModel from '../modules/models/subcategory';
 import InfoTable from './infoTable';
 import useBus from 'use-bus';
 
-const Subcategory = ({ subcategory }: any) => {
+const Subcategory = ({ subcategory }: { subcategory: SubcategoryModel }) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const toggleCollapse = (): void => {
